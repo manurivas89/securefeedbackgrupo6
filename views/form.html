@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Usuario - SecureFeedback S.A.</title>
+  <!-- Enlace al CSS externo -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Menú de navegación -->
+  <div class="navbar">
+    <div class="logo">SecureFeedback S.A.</div>
+    <ul>
+      <li><a href="/">Registro</a></li>
+      <li><a href="/usuarios">Usuarios</a></li>
+      
+    </ul>
+  </div>
+
+  <!-- Contenedor del formulario -->
+  <div class="form-container">
+    <h2>Registro de Usuario</h2>
+    <form action="/api/register" method="POST">
+      <input type="text" name="nombre" placeholder="Nombre" required />
+      <input type="text" name="apellido" placeholder="Apellido" required />
+      <input type="email" name="email" placeholder="Correo" required />
+      <input type="text" name="cargo" placeholder="Cargo" required />
+      <input type="text" name="telefono" placeholder="Teléfono" required />
+      <button type="submit">Registrar</button>
+    </form>
+  </div>
+</body>
+</html>

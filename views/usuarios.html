@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Usuarios Registrados - SecureFeedback S.A.</title>
+  <!-- Enlace al CSS externo -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Menú de navegación -->
+  <div class="navbar">
+    <div class="logo">SecureFeedback S.A.</div>
+    <ul>
+      <li><a href="/">Registro</a></li>
+      <li><a href="/usuarios">Usuarios</a></li>
+      
+    </ul>
+  </div>
+
+  <!-- Contenedor de la tabla -->
+  <div class="table-container">
+    <h2>Usuarios Registrados</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Email</th>
+          <th>Cargo</th>
+          <th>Teléfono</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-usuarios"></tbody>
+    </table>
+  </div>
+
+  <!-- Script para cargar datos desde el backend -->
+  <script>
+    fetch('/api/usuarios')
+      .then(res => res.json())
+      .then(data => {
+        const tbody = document.getElementById('tabla-usuarios');
+        data.forEach(u => {
+          const fila = document.createElement('tr');
+          fila.innerHTML = `
+            <td>${u.idusuario}</td>
+            <td>${u.nombre}</td>
+            <td>${u.apellido}</td>
+            <td>${u.email}</td>
+            <td>${u.cargo}</td>
+            <td>${u.telefono}</td>
+          `;
+          tbody.appendChild(fila);
+        });
+      })
+      .catch(err => console.error(err));
+  </script>
+</body>
+</html>
